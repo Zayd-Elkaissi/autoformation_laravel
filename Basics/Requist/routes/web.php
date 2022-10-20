@@ -1,7 +1,7 @@
 <?php
 
-
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,24 @@ use Illuminate\Support\Facades\Route;
 /* Requist */
 
 //
+Route::get('/index', function () {
+    return view('form');
+});
+Route::any("Request",[Controller::class,"index"]);
 
+
+// Request with id
+Route::get('/personForm', function () {
+    return view('personForm');
+});
+
+Route::any("Person/{id}",[Controller::class,"findId"]);
+
+
+
+// Request all
+Route::any("/route",function(Request $request){
+    return $input = $request->input();
+});
 
 
